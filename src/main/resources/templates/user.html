@@ -2,25 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>ログイン</title>
+<title>ユーザー新規作成</title>
 </head>
 <body>
 	<header>
 		<h1>単語帳</h1>
 	</header>
 	<main>
-		<form action="/login" method="post">
+		<h2>ユーザー新規作成</h2>
+		<form action="/users/new" method="post">
+			<input type="text" name="name" placeholder="名前">
+			<br>
 			<input type="text" name="email" placeholder="メールアドレス">
 			<br>
 			<input type="text" name="password" placeholder="パスワード">
 			<br>
-			<button>ログイン</button>
+			<input type="text" name="repassword" placeholder="パスワード（確認）">
 			<br>
 			<br>
-			<a href="/users/new">ユーザー新規作成</a>
+			<button>新規作成</button>
+			
 		</form>
 	</main>
-	
 
 </body>
 </html>
