@@ -12,27 +12,28 @@
 	</header>
 	<main>
 		<h2>単語一覧</h2>
-		<form>
-		<a href="/word/add">新規単語追加</a>	
+		
+		<a href="/word/create">新規単語追加</a>	
 		<table border="1">
 			<tr>
-				<th>No.</th>
+				
 				<th>単語</th>
 				<th>意味</th>
 				<th>編集</th>
 				<th>削除</th>
 				<th>チェック</th>
 			</tr>	
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td><button>編集</button></td>
+			<tr th:each="words:${word}">
+				<td th:text="${words.word}"></td>
+				<td th:text="${words.body}"></td>
+		<td><form th:action="@{/word/{id}/edit(id = ${words.id})}" method="get">
+				<button>編集</button>
+			</form></td>
 				<td><button>削除</button></td>
 				<td></td>
 			</tr>
 		</table>
-		</form>
+		
 	</main>
 
 </body>

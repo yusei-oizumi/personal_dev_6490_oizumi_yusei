@@ -10,17 +10,18 @@
 	</header>
 	<main>
 		<h2>単語更新</h2>
-		<form>
+		<form th:action="@{/word/{id}/edit(id = ${word.id})}" method="post">
 			<table border="1">
 				<tr>
 				<th>単語</th>
-				<td><textarea></textarea></td>	
+				<td><input type="text" name="word" th:value="${word.word}"></td>	
 				</tr>
 				<tr>
 				<th>意味</th>
-				<td><textarea></textarea></td>	
+				<td><input type="text" name="body" th:value="${word.body}"></td>	
 				</tr>
 			</table>
+		<input type="hidden" name="categoryId" th:value="${word.categoryId}">
 			<button>変更</button>
 		</form>
 

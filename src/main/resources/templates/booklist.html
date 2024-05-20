@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>単語帳一覧</title>
+	<meta charset="UTF-8">
+	<title>単語帳一覧</title>
 </head>
+
 <body>
 	<header>
 		<h1>単語帳</h1>
 	</header>
 	<main>
 		<h2>単語帳一覧</h2>
-		<form>
-		<a href="/word/add">新規単語帳追加</a>	
+
+		<a href="/book/create">新規単語帳作成</a>
+
 		<table border="1">
 			<tr>
 				<th>No.</th>
 				<th>単語帳</th>
-				<th>編集</th>
+				<th></th>
 				<th>削除</th>
-			</tr>	
-			<tr>
-				<td></td>
-				<td></td>
-				<td><button>編集</button></td>
-				<td><button>削除</button></td>
+			</tr>
+			<tr th:each="category:${category}">
+				<td th:text="${category.id}"></td>
+				<td th:text="${category.name}"></td>
+				<form th:action="@{/word/{id}/list(id = ${category.id})}" method="get">
+					<td><button>開く</button></td>
+				</form>
+				<form th:action="@{/book/{id}/delete(id = ${category.id})}" method="post">
+					<td><button>削除</button></td>
+				</form>
 			</tr>
 		</table>
-		</form>
+
 	</main>
 
 </body>
+
 </html>

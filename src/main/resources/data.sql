@@ -1,10 +1,14 @@
 -- categories テーブルにデータを挿入
-INSERT INTO categories (id, name) VALUES
-(1, '英単語');
-INSERT INTO categories (id, name) VALUES
-(2, '基本情報');
+INSERT INTO categories ( name) VALUES
+( 'sample');
 
+INSERT INTO users (name, email, password ) VALUES
+('大泉裕靖', 'tanaka@aaa.com', 'himitu');
 
 -- blogs テーブルにデータを挿入
-INSERT INTO blogs (id, category_id, user_id, word, body,remember) VALUES
-(1, 1, 1, 'Sample', '例',1);
+INSERT INTO blogs (category_id, word, body,remember) VALUES
+( 1, 'Sample', '例',1);
+
+-- books テーブルにデータを挿入
+--INSERT INTO books (name) VALUES('sample');
+;

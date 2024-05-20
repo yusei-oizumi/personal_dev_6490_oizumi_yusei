@@ -14,14 +14,13 @@ CREATE TABLE users (
 id SERIAL PRIMARY KEY,
 email TEXT,
 name TEXT,
-Password TEXT
+password TEXT
 );
 
 -- blogs（記事）
 CREATE TABLE blogs (
 id SERIAL PRIMARY KEY,
 category_id INTEGER,
-user_id INTEGER,
 word TEXT,
 body TEXT,
 remember INTEGER

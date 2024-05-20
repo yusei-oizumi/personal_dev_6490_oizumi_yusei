@@ -10,7 +10,8 @@
 	</header>
 	<main>
 		<form action="/login" method="post">
-			<input type="text" name="email" placeholder="メールアドレス">
+			<span th:text="${message}" style="color: red"></span><br>
+			<input type="text" name="email" placeholder="メールアドレス" th:value="${email}">
 			<br>
 			<input type="text" name="password" placeholder="パスワード">
 			<br>
