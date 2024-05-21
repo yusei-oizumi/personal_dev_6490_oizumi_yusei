@@ -124,4 +124,11 @@ public class UserController {
 		return "login";
 }
 	
+	@GetMapping({"/userlist"})
+	public String toplist() {
+		
+		return "list";
+	}
+	
+	
 }

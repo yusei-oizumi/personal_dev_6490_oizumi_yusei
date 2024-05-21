@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<meta charset="UTF-8">
 	<title>単語帳一覧</title>
 </head>
 
 <body>
 	<header>
-		<h1>単語帳</h1>
+		<h1><a href="/userlist">単語帳</a></h1>
+		<a href="/logout">ログアウト</a>
 	</header>
 	<main>
 		<h2>単語帳一覧</h2>
@@ -17,19 +19,22 @@
 
 		<table border="1">
 			<tr>
-				<th>No.</th>
 				<th>単語帳</th>
 				<th></th>
 				<th>削除</th>
+				<th></th>
 			</tr>
 			<tr th:each="category:${category}">
-				<td th:text="${category.id}"></td>
 				<td th:text="${category.name}"></td>
 				<form th:action="@{/word/{id}/list(id = ${category.id})}" method="get">
 					<td><button>開く</button></td>
 				</form>
 				<form th:action="@{/book/{id}/delete(id = ${category.id})}" method="post">
 					<td><button>削除</button></td>
+				</form>
+				<form action="/quiz" method="get">
+					<input type="hidden" name="categoryId" th:value="${category.id}">
+					<td><button>クイズ</button></td>
 				</form>
 			</tr>
 		</table>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<meta charset="UTF-8">
+	<title>クイズ</title>
+</head>
+
+<body>
+	<header>
+		<h1><a href="/userlist">単語帳</a></h1>
+		<a href="/logout">ログアウト</a>
+	</header>
+	<h2>クイズ</h2>
+	<tr th:each="blogs:${blog}">
+				<p th:text="${blogs.word}"></p>
+	
+	<textarea></textarea><br>
+	<span th:text="${blog.body}" style="display: none;" id="body"></span>
+	<button  onclick="showBody()">解答を確認</button><br>
+
+	
+	<script>
+		function showBody(){
+			var body = document.getElementById("body");
+			
+			body.style.display = "block";
+		}
+	</script>
+</body>
+
+</html>

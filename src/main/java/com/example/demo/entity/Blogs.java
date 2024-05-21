@@ -26,16 +26,28 @@ public class Blogs {
 		
 	}
 	
-	public Blogs(Integer id, Integer categoryId, String word, String body) {
+	public Blogs(Integer id, Integer categoryId, String word, String body,Integer remember ) {
 		this.id = id;
 		this.categoryId =categoryId;
 		this.word = word;
 		this.body = body;
-	}
+		this.remember=remember;
 	
-	public Blogs(String word, String body) {
+	}
+	public Blogs(Integer id, Integer categoryId, String word, String body ) {
+		this.id = id;
+		this.categoryId =categoryId;
 		this.word = word;
 		this.body = body;
+		this.remember=0;
+	
+	}
+	
+	public Blogs( Integer categoryId,String word, String body) {
+		this.categoryId =categoryId;
+		this.word = word;
+		this.body = body;
+		this.remember=0;
 	}
 
 	public Integer getId() {
