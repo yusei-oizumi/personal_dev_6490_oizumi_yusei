@@ -10,12 +10,14 @@
 <body>
 	<header>
 		<h1><a href="/userlist">単語帳</a></h1>
-		<a href="/logout">ログアウト</a>
+		<a href="/logout" class="btn-text-3d">ログアウト</a>
+		<br>
+		<a href="/list" class="btn-text-3d">前ページに戻る</a>
 	</header>
-	<main>
+<!--	<main>-->
 		<h2>単語一覧</h2>
 		<th:block th:each="words:${word}">
-			<a th:href="@{/word/create(categoryId=${words.id})}">新規単語追加</a>
+			<a th:href="@{/word/create(categoryId=${words.id})}" class="btn-flat-vertical-border">新規単語追加</a>
 			<th:block th:each="words:${word}">
 				<table border="1">
 					<tr>
@@ -24,7 +26,7 @@
 						<th>詳細</th>
 						<th>編集</th>
 						<th>削除</th>
-						<th>チェック</th>
+						<th>覚えた</th>
 					</tr>
 					<th:block th:each="words:${word}">
 						<tr th:if="${words.id eq blogs.categoryId}" th:each="blogs:${blog}">
@@ -32,16 +34,16 @@
 							<td th:text="${blogs.body}"></td>
 							<td>
 								<form th:action="@{/word/{id}/edit(id = ${blogs.id})}" method="get">
-									<button>編集</button>
+									<button class="btn-right-radius">編集</button>
 								</form>
 							</td>
 							<form th:action="@{/word/{id}/delete(id = ${blogs.id})}" method="post">
 								<input type="hidden" name="categoryId" th:value="${blogs.categoryId}">
-								<td><button>削除</button></td>
+								<td><button class="btn-right-radius">削除</button></td>
 							</form>
 							<td th:if="${blogs.remember}==1">
 								<form th:action="@{/word/{id}/check(id = ${blogs.id})}" method="post">
-									<button>チェック</button>
+									<button class="btn-right-radius">覚えた</button>
 									<input type="hidden" name="categoryId" th:value="${blogs.categoryId}">
 									<input type="hidden" name="word" th:value="${blogs.word}">
 									<input type="hidden" name="body" th:value="${blogs.body}">
@@ -50,7 +52,7 @@
 							</td>
 							<td th:if="${blogs.remember}==0">
 								<form th:action="@{/word/{id}/check(id = ${blogs.id})}" method="post">
-									<button>未チェック</button>
+									<button class="btn-right-radius">覚えてない</button>
 									<input type="hidden" name="categoryId" th:value="${blogs.categoryId}">
 									<input type="hidden" name="word" th:value="${blogs.word}">
 									<input type="hidden" name="body" th:value="${blogs.body}">
@@ -68,8 +70,8 @@
 					</th:block>
 				</table>
 
-	</main>
-
+<!--	</main>-->
+	<footer th:replace="footer"></footer>
 </body>
 
 </html>

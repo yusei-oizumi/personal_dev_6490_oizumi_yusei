@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-<meta charset="UTF-8">
-<title>新規単語帳作成</title>
+	<meta charset="UTF-8">
+	<title>新規単語帳作成</title>
 </head>
+
 <body>
 	<header>
 		<h1><a href="/userlist">単語帳</a></h1>
-		<a href="/logout">ログアウト</a>
+		<a href="/logout" class="btn-text-3d">ログアウト</a>
+		<br>
+		<a href="/list" class="btn-text-3d">前ページに戻る</a>
 	</header>
-	<main>
+<!--	<main>-->
 		<h2>新規単語帳作成</h2>
-		<span th:text="${message}" style="color: red;"></span>
+		<span th:text="${message}" class="errer"></span>
 		<form action="/book/edit" method="post">
 			<table border="1">
 				<tr>
-				<th>新規単語帳名</th>
-				<td><input type="text" name="book"></td>	
+					<th>新規単語帳名</th>
+					<td><input type="text" name="book"></td>
 				</tr>
 				<tr>
 			</table>
-			<button>新規作成</button>
+			<button class="btn-right-radius">新規作成</button>
 		</form>
-	</main>
-
+<!--	</main>-->
+	<footer th:replace="footer"></footer>
 </body>
+
 </html>

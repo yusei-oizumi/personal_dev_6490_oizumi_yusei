@@ -11,6 +11,8 @@ public interface BooksRepository extends JpaRepository<Blogs, Integer>{
 	List<Blogs> findByCategoryId(Integer CategoryId);
 
 	List<Blogs> findAllByOrderByIdAsc();
+
+	List<Blogs> findByCategoryIdOrderByIdAsc(Integer categoryId);
 	
 
 }

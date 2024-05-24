@@ -9,20 +9,20 @@
 	<header>
 		<h1>単語帳</h1>
 	</header>
-	<main>
+<!--	<main>-->
 		<form action="/login" method="post">
-			<span th:text="${message}" style="color: red"></span><br>
+			<span th:text="${message}" class="errer"></span><br>
 			<input type="text" name="email" placeholder="メールアドレス" th:value="${email}">
 			<br>
 			<input type="text" name="password" placeholder="パスワード">
 			<br>
-			<button>ログイン</button>
+			<button class="btn-right-radius">ログイン</button>
 			<br>
 			<br>
-			<a href="/users/new">ユーザー新規作成</a>
+			<a href="/users/new" class="btn-flat-vertical-border">ユーザー新規作成</a>
 		</form>
-	</main>
-	
+<!--	</main>-->
+	<footer th:replace="footer"></footer>
 
 </body>
 </html>

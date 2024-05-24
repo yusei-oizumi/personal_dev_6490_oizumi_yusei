@@ -10,24 +10,50 @@
 <body>
 	<header>
 		<h1><a href="/userlist">単語帳</a></h1>
-		<a href="/logout">ログアウト</a>
+		<a href="/logout" class="btn-text-3d">ログアウト</a>
+		<br>
+		<a href="/list" class="btn-text-3d">前ページに戻る</a>
 	</header>
 	<h2>クイズ</h2>
-	<tr th:each="blogs:${blog}">
-				<p th:text="${blogs.word}"></p>
-	
-	<textarea></textarea><br>
-	<span th:text="${blog.body}" style="display: none;" id="body"></span>
-	<button  onclick="showBody()">解答を確認</button><br>
+	<table border="1">
+		<tr>
+			<th>単語</th>
+			<th>回答</th>
+			<th>解答</th>
+			<th></th>
+		</tr>
+		<tr th:each="blogs:${blog}">
+			<td th:text="${blogs.word}"></td>
 
-	
+			<td><textarea></textarea></td>
+			<td class="anser">
+				<div th:text="${blogs.body}" style="opacity: 0;" th:id="'body' + ${blogs.id}"></div>
+			</td>
+			<td><button th:id="button + ${blogs.id}" class="btn-right-radius">解答を確認</button></td>
+		</tr>
+	</table>
+
+
 	<script>
-		function showBody(){
-			var body = document.getElementById("body");
-			
-			body.style.display = "block";
-		}
+		var bodies = document.querySelectorAll('[id^="body"]');
+		var anser = document.querySelectorAll('[id^="button"]');
+		console.log(bodies)
+		console.log(bodies)
+
+		anser.forEach(function (body, num) {
+			body.addEventListener("click", function () {
+
+				var index = num;
+				console.log(bodies[index]);
+				bodies[index].style.opacity = '1';
+
+			})
+
+			//				body.style.display = "block";
+		});
+
 	</script>
+	<footer th:replace="footer"></footer>
 </body>
 
 </html>

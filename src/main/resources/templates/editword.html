@@ -8,9 +8,11 @@
 <body>
 	<header>
 		<h1><a href="/userlist">単語帳</a></h1>
-		<a href="/logout">ログアウト</a>
+		<a href="/logout" class="btn-text-3d">ログアウト</a>
+		<br>
+		<a href="/list" class="btn-text-3d">単語帳一覧</a>
 	</header>
-	<main>
+<!--	<main>-->
 		<h2>単語更新</h2>
 		<form th:action="@{/word/{id}/edit(id = ${word.id})}" method="post">
 			<table border="1">
@@ -24,8 +26,9 @@
 				</tr>
 			</table>
 		<input type="hidden" name="categoryId" th:value="${word.categoryId}">
-			<button>変更</button>
+			<button class="btn-right-radius">変更</button>
 		</form>
+		<footer th:replace="footer"></footer>
 
 </body>
 </html>

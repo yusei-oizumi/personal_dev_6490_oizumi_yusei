@@ -21,8 +21,8 @@ public class QuizController {
 	public String quiz(
 			@RequestParam(name="categoryId", defaultValue = "") Integer categoryId,
 			Model model) {
-		List<Blogs> quizmenu = booksRepository.findByCategoryId(categoryId);
-		model.addAttribute("blog", quizmenu.get(0));
+		List<Blogs> quizmenu = booksRepository.findByCategoryIdOrderByIdAsc(categoryId);
+		model.addAttribute("blog", quizmenu);
 		return "quiz";
 	}
 

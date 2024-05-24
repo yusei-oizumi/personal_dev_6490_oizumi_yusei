@@ -9,13 +9,13 @@
 
 <body>
 	<header>
-		<h1><a href="/userlist">単語帳</a></h1>
-		<a href="/logout">ログアウト</a>
+		<h1 class="home"><a href="/userlist" >単語帳</a></h1>
+		<a href="/logout" class="btn-text-3d">ログアウト</a>
 	</header>
-	<main>
+<!--	<main>-->
 		<h2>単語帳一覧</h2>
 
-		<a href="/book/create">新規単語帳作成</a>
+		<a href="/book/create" class="btn-flat-vertical-border">新規単語帳作成</a>
 
 		<table border="1">
 			<tr>
@@ -27,19 +27,20 @@
 			<tr th:each="category:${category}">
 				<td th:text="${category.name}"></td>
 				<form th:action="@{/word/{id}/list(id = ${category.id})}" method="get">
-					<td><button>開く</button></td>
+					<td><button class="btn-right-radius">開く</button></td>
 				</form>
 				<form th:action="@{/book/{id}/delete(id = ${category.id})}" method="post">
-					<td><button>削除</button></td>
+					<td><button class="btn-right-radius">削除する</button></td>
 				</form>
 				<form action="/quiz" method="get">
 					<input type="hidden" name="categoryId" th:value="${category.id}">
-					<td><button>クイズ</button></td>
+					<td><button class="btn-right-radius">クイズ</button></td>
 				</form>
 			</tr>
 		</table>
 
-	</main>
+<!--	</main>-->
+	<footer th:replace="footer"></footer>
 
 </body>
 

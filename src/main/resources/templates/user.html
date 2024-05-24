@@ -9,10 +9,10 @@
 	<header>
 		<h1>単語帳</h1>
 	</header>
-	<main>
+<!--	<main>-->
 		<h2>ユーザー新規作成</h2>
 		<div th:each="error:${errorList}" >
-			<span th:text="${error}" style="color: red"></span>
+			<span th:text="${error}" class="errer"></span>
 		</div>
 		<form action="/users/add" method="post">
 			<input type="text" name="name" placeholder="名前" th:value="${name}">
@@ -24,10 +24,11 @@
 			<input type="text" name="repassword" placeholder="パスワード（確認）">
 			<br>
 			<br>
-			<button>新規作成</button>
+			<button class="btn-right-radius">新規作成</button>
 			
 		</form>
-	</main>
+<!--	</main>-->
+	<footer th:replace="footer"></footer>
 
 </body>
 </html>
